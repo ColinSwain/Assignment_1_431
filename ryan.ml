@@ -21,3 +21,25 @@ let rec prob10 n =
 ;;
 
 prob10 list_1;;
+
+
+(*11. (a) a definition of the type of a binary tree of floats*)
+
+type tree =
+| Leaf
+| Node of float * tree * tree
+
+
+(*11. (b) the declaration of an actual binary tree of floats, of at least depth (height) 3*)
+
+let prob11 =
+  Node (1.2,
+    Node (2.3,
+      Node (3.1, Leaf, Leaf),
+      Leaf
+        ),
+      Leaf
+      )
+;;
+
+
