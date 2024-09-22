@@ -43,3 +43,13 @@ let prob11 =
 ;;
 
 
+(*12. a function that returns the depth (height) of a binary tree of floats, as defined in 11.*)
+
+let rec prob12 n =
+    match n with 
+    | Leaf -> 0
+    | Node (_,left,right) ->  1 + max (prob12 left) (prob12 right)
+;;
+
+
+  let depth = prob12 prob11
