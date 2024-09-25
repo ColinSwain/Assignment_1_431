@@ -52,4 +52,15 @@ let rec prob12 n =
 ;;
 
 
-  let depth = prob12 prob11
+let depth = prob12 prob11
+
+
+  (* 13. a function that returns the number of leaf nodes in a binary tree of floats, as defined in 11.*)
+
+let rec prob13 n =
+    match n with
+    | Leaf -> 1
+    | Node (_,left,right) -> prob13 left + prob13 right
+;;
+
+let leafCount = prob13 prob11
