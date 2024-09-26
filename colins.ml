@@ -50,7 +50,7 @@ let rec prob4 l rmv =
   match l with
   | [] -> []
   | hd :: [] ->  if hd == rmv then [] else hd :: []
-  | hd :: tl -> if hd == rmv then prob4 tl rmv else hd :: prob4 tl rmv
+  | hd :: tl -> if hd == rmv then prob4 tl rmv else hd :: prob4 tl rmv 
 
 prob4 x 3;;
 prob4 y 3;;
@@ -58,16 +58,16 @@ prob4 z 3;;
 
 (*Problem 7 Solution
   Author Colin Swain*)
-  (*One method uses the recursive, purely additive formula ( n k ) = ( n − 1 k − 1 ) + ( n − 1 k )
-  {\displaystyle {\binom {n}{k}}={\binom {n-1}{k-1}}+{\binom {n-1}{k}}} for all integers n , 
-  k {\displaystyle n,k} such that 1 ≤ k < n , {\displaystyle 1\leq k<n,} with boundary values ( n 0 )
-   = ( n n ) = 1 {\displaystyle {\binom {n}{0}}={\binom {n}{n}}=1} for all integers n ≥ 0. *)
-
+(*0 based index, returns 0 if not a possible binomial coefficent *)
 let rec prob7 n k =   
-  match n with 
-  | k -> 1
-  | n -> prob7 (n-1) (k-1) + prob7 (n-1) k
+  match (n, k) with 
+  | (_,0) -> 1
+  | (0,_)-> 0
+  | (n,k) when k>n -> 0
+  | (n, k) -> prob7 (n-1) (k-1) + prob7 (n-1) k
 
+prob7 0 0;;
 prob7 1 2;;
-
+prob7 3 2;;
+prob7 6 4;;
 
