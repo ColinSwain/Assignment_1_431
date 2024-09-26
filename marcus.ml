@@ -60,7 +60,7 @@ let rec undup list =
   | [] -> []
   | [h] -> raise (Failure "bad input") 
   | h :: (h2 :: t) when h = h2 -> h :: undup t
-  | _ -> raise (Failure "bad input")
+  | _ -> raise (Failure "bad input");;
 
 undup list4;;
 undup list2;;
